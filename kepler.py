@@ -3,7 +3,7 @@ import math
 def kepler(M, e, iterations=25, alpha=0.6):
 
     E = M
-
+    
     for _ in range(iterations):
 
         E_next = M + e * math.sin(E)
@@ -11,14 +11,17 @@ def kepler(M, e, iterations=25, alpha=0.6):
 
     return E
 
-
-M_deg = float(input("M (deg) : "))
+M_deg = float(input("M (degres) : "))
 e = float(input("e : "))
 
 M = math.radians(M_deg)
 
 E = kepler(M, e)
 
+E_rad = E % (2 * math.pi)
+
+E_deg = math.degrees(E_rad)
+
 print("\nRESULTAT")
-print("E (rad) =", E)
-print("E (deg) =", math.degrees(E))
+print("E (radians) =", E_rad)
+print("E (degres) =", E_deg)
